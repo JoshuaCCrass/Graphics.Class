@@ -1,8 +1,6 @@
-# learnopengl-template
+# Graphics.Class
 
-git clone --recursive https://github.com/EricWRogers/learnopengl-template.git
--or-
-git clone --recursive git@github.com:EricWRogers/learnopengl-template.git
+git clone --recursive https://github.com/JoshuaCCrass/Graphics.Class.git
 
 
 ## DEPENDENCES
