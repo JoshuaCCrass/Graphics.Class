@@ -112,12 +112,21 @@ void App::Loop()
   }
 }
 void App::Update(){}
-void App::Draw(){
+void App::Draw()
+{
       glClearColor(0.2f,0.3f,0.3f,1.0f);
       glClear(GL_COLOR_BUFFER_BIT);
 
-      // draw first triangle
+      // be sure to activate the shader program before calling to uniforms
       glUseProgram(shaderProgram);
+
+      // update shader uniform
+      double timeValue = SDL_GetTicks() / 1000;
+      float greenValue = static_cast<float>(sin(timeValue) / 2.0 + 0.5);
+      int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+      glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
+      // render triangle
       glBindVertexArray(VAO);
       glDrawArrays(GL_TRIANGLES, 0, 3);
       glBindVertexArray(0);
