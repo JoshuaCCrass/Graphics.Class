@@ -31,48 +31,8 @@ void App::Run(){
 void App::Load()
 {
   // build and compile our shader program
-
-  //vertex shader
-  unsigned int vertexShader;
-  vertexShader = glCreateShader(GL_VERTEX_SHADER);
-  glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-  glCompileShader(vertexShader);
-  // chech for shader compile errors
-  int success;
-  char infoLog[512];
-  glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-  if(!success)
-  {
-    glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-    std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
-  }
-
-  // fragrment shader
-  unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-  glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-  glCompileShader(fragmentShader);
-  // check for shader compile error
-  glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-  if(!success)
-  {
-    glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-    std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
-  }
-
-  // link shaders
-  shaderProgram = glCreateProgram();
-  glAttachShader(shaderProgram, vertexShader);
-  glAttachShader(shaderProgram, fragmentShader);
-  glLinkProgram(shaderProgram);
-  // check for linking errors
-  glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-  if(!success)
-  {
-    glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-    std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-  }
-  glDeleteShader(vertexShader);
-  glDeleteShader(fragmentShader);
+  shader.Compile("assets/shaders/3.1.shader.vs", "assets/shaders/3.1.shader.fs");
+  shader.Link();
 
   float vertices[] = 
   {
@@ -123,18 +83,22 @@ void App::Draw()
       glClear(GL_COLOR_BUFFER_BIT);
 
       // be sure to activate the shader program before calling to uniforms
-      glUseProgram(shaderProgram);
+      shader.Use();
 
       // update shader uniform
       double timeValue = SDL_GetTicks() / 1000;
       float greenValue = static_cast<float>(sin(timeValue) / 2.0 + 0.5);
-      int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-      glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+      //int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+      //glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
+      shader.SetVec4("ourColor", glm::vec4(0.0f, greenValue, 0.0f, 1.0f));
 
       // render triangle
       glBindVertexArray(VAO);
       glDrawArrays(GL_TRIANGLES, 0, 6);
       glBindVertexArray(0);
+
+      shader.UnUse();
     }
 void App::LateUpdate(){}
 void App::FixedUpdate(float _delta_time){}
