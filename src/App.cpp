@@ -44,6 +44,11 @@ void App::Load()
     0.25f, 0.0f, 0.0f //right mid
   };
 
+  unsigned int indices[] = {
+    0, 1, 3,
+    1, 2, 3,
+  };
+
   // VBO , VAO
   glGenVertexArrays(1, &VAO);
   glGenBuffers(1, &VBO);
