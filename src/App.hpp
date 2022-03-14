@@ -1,6 +1,10 @@
 #include <iostream>
 #include <SDL.h>
 #include <math.h>
+#include <chrono>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include "Engine/Engine.hpp"
 #include "Engine/Debug.hpp"
@@ -45,6 +49,11 @@ private:
 
     Engine::GLTexture texture1 = {};
     Engine::GLTexture texture2 = {};
+
+    std::chrono::steady_clock::time_point currentTime;
+    std::chrono::steady_clock::time_point previousTime;
+
+    double deltaTime;
 
     const char *vertexShaderSource = "#version 330 core\n"
                                      "layout (location = 0) in vec3 aPos;\n"
