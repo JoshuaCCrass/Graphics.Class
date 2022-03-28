@@ -50,7 +50,7 @@ float vertices[] = {
 // world space positions of our cubes
 std::vector<glm::vec3> brickPositions = {
   // Wall 1
-  glm::vec3(  1.0f,  1.0f,  1.0f), //
+  glm::vec3(  1.0f,  1.0f,  1.0f), // Start point
   glm::vec3(  1.0f,  2.0f,  1.0f),
   glm::vec3(  1.0f,  3.0f,  1.0f),
   glm::vec3(  2.0f,  1.0f,  1.0f), //
@@ -71,7 +71,7 @@ std::vector<glm::vec3> brickPositions = {
   glm::vec3(  7.0f,  1.0f,  1.0f), //
   glm::vec3(  7.0f,  2.0f,  1.0f),
   glm::vec3(  7.0f,  3.0f,  1.0f),
-  glm::vec3(  8.0f,  1.0f,  1.0f), //
+  glm::vec3(  8.0f,  1.0f,  1.0f), // End point
   glm::vec3(  8.0f,  2.0f,  1.0f),
   glm::vec3(  8.0f,  3.0f,  1.0f),
   // Wall 2
