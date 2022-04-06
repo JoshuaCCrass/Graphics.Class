@@ -3,275 +3,258 @@
 // set up vertex data (and buffer(s)) and configure vertex attributes
 // ------------------------------------------------------------------
 float vertices[] = {
-  // positions           // texture coords
-  -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-   0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-  -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-  -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+    // positions          // normals           // texture coords
+    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  0.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
 
-  -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-   0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-   0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-   0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-  -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-  -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
 
-  -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-  -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-  -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-  -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-  -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-  -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+    -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
+    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+    -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
 
-   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-   0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-   0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-   0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
+     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+     0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
 
-  -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-   0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-   0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-   0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-  -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-  -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f,  1.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
 
-  -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-  -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-  -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f,  1.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f
 };
 
-// world space positions of our cubes
-std::vector<glm::vec3> brickPositions = {
-  // Wall 1
-  glm::vec3(  1.0f,  1.0f,  1.0f), // Start point
-  glm::vec3(  1.0f,  2.0f,  1.0f),
-  glm::vec3(  1.0f,  3.0f,  1.0f),
-  glm::vec3(  2.0f,  1.0f,  1.0f), //
-  glm::vec3(  2.0f,  2.0f,  1.0f),
-  glm::vec3(  2.0f,  3.0f,  1.0f),
-  glm::vec3(  3.0f,  1.0f,  1.0f), //
-  glm::vec3(  3.0f,  2.0f,  1.0f),
-  glm::vec3(  3.0f,  3.0f,  1.0f),
-  glm::vec3(  4.0f,  1.0f,  1.0f), //
-  glm::vec3(  4.0f,  2.0f,  1.0f),
-  glm::vec3(  4.0f,  3.0f,  1.0f),
-  glm::vec3(  5.0f,  1.0f,  1.0f), //
-  glm::vec3(  5.0f,  2.0f,  1.0f),
-  glm::vec3(  5.0f,  3.0f,  1.0f),
-  glm::vec3(  6.0f,  1.0f,  1.0f), //
-  glm::vec3(  6.0f,  2.0f,  1.0f),
-  glm::vec3(  6.0f,  3.0f,  1.0f),
-  glm::vec3(  7.0f,  1.0f,  1.0f), //
-  glm::vec3(  7.0f,  2.0f,  1.0f),
-  glm::vec3(  7.0f,  3.0f,  1.0f),
-  glm::vec3(  8.0f,  1.0f,  1.0f), // End point
-  glm::vec3(  8.0f,  2.0f,  1.0f),
-  glm::vec3(  8.0f,  3.0f,  1.0f),
-  // Wall 2
-};
+// lighting
+glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 
 App::App()
 {
-  Engine::Log("Object Made");
+    Engine::Log("Object Made");
 }
 App::~App()
 {
-  Engine::Log("Object Destroyed");
+    Engine::Log("Object Destroyed");
 }
 
 void App::Run()
 {
-  if (appState == AppState::ON)
-    Engine::FatalError("App already running.");
-  
-  previousTime = high_resolution_clock::now();
+    if (appState == AppState::ON)
+        Engine::FatalError("App already running.");
 
-  Engine::Init();
+    Engine::Init();
 
-  unsigned int windowFlags = 0;
+    unsigned int windowFlags = 0;
 
-  // windowFlags |= Engine::WindowFlags::FULLSCREEN;
+    // windowFlags |= Engine::WindowFlags::FULLSCREEN;
 
-  // windowFlags |= Engine::WindowFlags::BORDERLESS;
+    // windowFlags |= Engine::WindowFlags::BORDERLESS;
 
-  window.Create("Engine", 800, 600, windowFlags);
+    window.Create("Engine", 800, 600, windowFlags);
 
-  Load();
+    Load();
 
-  appState = AppState::ON;
+    appState = AppState::ON;
 
-  Loop();
+    Loop();
 }
 
 void App::Load()
 {
-  // configure opengle global state
-  glEnable(GL_DEPTH_TEST);
+    // configure global opengl state
+    glEnable(GL_DEPTH_TEST);
 
-  // build and compile our shader program
-  // ------------------------------------
-  shader.Compile("assets/shaders/house_hw.vs","assets/shaders/house_hw.fs");
-  shader.AddAttribute("aPos");
-  shader.AddAttribute("aTexCoord");
-  shader.Link();
+    // build and compile our shader program
+    lightingShader.Compile("assets/shaders/3.1.materials.vs", "assets/shaders/3.1.materials.fs");
+    lightingShader.AddAttribute("aPos");
+    lightingShader.AddAttribute("aNormal");
+    lightingShader.Link();
 
-  // unsigned int VBO, VAO;
-  glGenVertexArrays(1, &VAO);
-  glGenBuffers(1, &VBO);
+    lightCubeShader.Compile("assets/shaders/3.1.light_cube.vs", "assets/shaders/3.1.light_cube.fs");
+    lightCubeShader.AddAttribute("aPos");
+    lightCubeShader.Link();
 
-  // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-  glBindVertexArray(VAO);
+    glGenVertexArrays(1, &cubeVAO);
+    glGenBuffers(1, &VBO);
 
-  glBindBuffer(GL_ARRAY_BUFFER, VBO);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-  // position
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)0);
-  glEnableVertexAttribArray(0);
-  // texture coord
-  glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)(3 * sizeof(float)));
-  glEnableVertexAttribArray(1);
+    glBindVertexArray(cubeVAO);
 
-  // load texture 1
-  texture1 = Engine::LoadPNGToGLTexture("assets/textures/GoodVibes/grass_block_top.png", GL_RGBA, GL_RGBA);
-  // load texture 2
-  texture2 = Engine::LoadPNGToGLTexture("assets/textures/GoodVibes/bricks.png", GL_RGBA, GL_RGBA);
+    // position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    // normal attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
 
-  // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
+    // second, configure the light's VAO (VBO stays the same; the vertices are the same for the light object which is also a 3D cube)
+    glGenVertexArrays(1, &lightCubeVAO);
+    glBindVertexArray(lightCubeVAO);
 
-  // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-  // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
-  glBindVertexArray(0);
+    // we only need to bind to the VBO (to link it with glVertexAttribPointer), no need to fill it; the VBO's data already contains all we need (it's already bound, but we do it again for educational purposes)
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
-  glPolygonMode( GL_FRONT_AND_BACK, GL_FILL);
+    // note that we update the lamp's position attribute's stride to reflect the updated buffer data
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
 
-  previousTime = high_resolution_clock::now();
+    // wireframe
+    // glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+    // fill
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+    // start timer
+    previousTime = high_resolution_clock::now();
 }
 
 void App::Loop()
 {
-  while (appState == AppState::ON)
-  {
-    currentTime = high_resolution_clock::now();
-    deltaTime = std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - previousTime).count() / 1000000000.0;
-    previousTime = currentTime;
-    Engine::Log(std::to_string(deltaTime));
+    while (appState == AppState::ON)
+    {
+        currentTime = high_resolution_clock::now();
+        deltaTime = std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - previousTime).count() / 1000000000.0;
+        previousTime = currentTime;
 
-    Update();
-    Draw();
-    // Get SDL to swap our buffer
-    window.SwapBuffer();
-    LateUpdate();
-    FixedUpdate(0.0f);
-    InputUpdate();
-  }
+        Update();
+        Draw();
+        // Get SDL to swap our buffer
+        window.SwapBuffer();
+        LateUpdate();
+        FixedUpdate(deltaTime);
+        InputUpdate();
+    }
 }
 void App::Update()
 {
-  if (inputManager.isKeyPressed(SDLK_w))
-  {
-    camera.ProcessKeyboard(Engine::Camera_Movement::FORWARD, deltaTime);
-  }
+    if (inputManager.isKeyPressed(SDLK_w))
+    {
+        camera.ProcessKeyboard(Engine::Camera_Movement::FORWARD, deltaTime);
+    }
 
-  if (inputManager.isKeyPressed(SDLK_s))
-  {
-    camera.ProcessKeyboard(Engine::Camera_Movement::BACKWARD, deltaTime);
-  }
+    if (inputManager.isKeyPressed(SDLK_s))
+    {
+        camera.ProcessKeyboard(Engine::Camera_Movement::BACKWARD, deltaTime);
+    }
 
-  if (inputManager.isKeyPressed(SDLK_a))
-  {
-    camera.ProcessKeyboard(Engine::Camera_Movement::LEFT, deltaTime);
-  }
+    if (inputManager.isKeyPressed(SDLK_a))
+    {
+        camera.ProcessKeyboard(Engine::Camera_Movement::LEFT, deltaTime);
+    }
 
-  if (inputManager.isKeyPressed(SDLK_d))
-  {
-    camera.ProcessKeyboard(Engine::Camera_Movement::RIGHT, deltaTime);
-  }
+    if (inputManager.isKeyPressed(SDLK_d))
+    {
+        camera.ProcessKeyboard(Engine::Camera_Movement::RIGHT, deltaTime);
+        Engine::Log("Right");
+    }
 }
 void App::Draw()
 {
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    // render
+    // ------
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-  // bind textures on corresponding texture units
-  glActiveTexture(GL_TEXTURE0);
-  glBindTexture(GL_TEXTURE_2D, texture1.id);
+    // be sure to activate shader when setting uniforms/drawing objects
+    lightingShader.Use();
+    lightingShader.SetVec3("light.position", lightPos);
+    lightingShader.SetVec3("viewPos", camera.Position);
 
-  // be sure to activate the shader before any calls to glUniform
-  shader.Use();
+    // light properties
+    glm::vec3 lightColor;
+    lightColor.x = static_cast<float>(sin(SDL_GetTicks() * 0.002));
+    lightColor.y = static_cast<float>(sin(SDL_GetTicks() * 0.0007));
+    lightColor.z = static_cast<float>(sin(SDL_GetTicks() * 0.0013));
+    glm::vec3 diffuseColor = lightColor   * glm::vec3(0.5f); // decrease the influence
+    glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f); // low influence
+    lightingShader.SetVec3("light.ambient", ambientColor);
+    lightingShader.SetVec3("light.diffuse", diffuseColor);
+    lightingShader.SetVec3("light.specular", 1.0f, 1.0f, 1.0f);
 
-  glUniform1i(glGetUniformLocation(shader.GetProgramID(), "texture1"), 0);
+    // material properties
+    lightingShader.SetVec3("material.ambient", 1.0f, 0.5f, 0.31f);
+    lightingShader.SetVec3("material.diffuse", 1.0f, 0.5f, 0.31f);
+    lightingShader.SetVec3("material.specular", 0.5f, 0.5f, 0.5f); // specular lighting doesn't have full effect on this object's material
+    lightingShader.SetFloat("material.shininess", 32.0f);
 
-  glm::mat4 view = glm::mat4(1.0f);
-  glm::mat4 projection = glm::mat4(1.0f);
+    // view/projection transformations
+    glm::mat4 projection = glm::perspective(
+        glm::radians(camera.Zoom), 
+        (float)window.GetScreenWidth() / (float)window.GetScreenHeight(), 
+        0.1f, 100.0f);
+    glm::mat4 view = camera.GetViewMatrix();
+    lightingShader.SetMat4("projection", projection);
+    lightingShader.SetMat4("view", view);
 
-  projection = glm::perspective(glm::radians(camera.Zoom), (float)window.GetScreenWidth()/(float)window.GetScreenHeight(), 0.1f, 100.0f);
-  view = camera.GetViewMatrix();
+    // world transformation
+    glm::mat4 model = glm::mat4(1.0f);
+    lightingShader.SetMat4("model", model);
 
-  glUniformMatrix4fv(glGetUniformLocation(shader.GetProgramID(),"projection"), 1, GL_FALSE, glm::value_ptr(projection));
-  glUniformMatrix4fv(glGetUniformLocation(shader.GetProgramID(),"view"), 1, GL_FALSE, glm::value_ptr(view));
+    // render the cube
+    glBindVertexArray(cubeVAO);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 
-  // render boxes
-  glBindVertexArray(VAO);
 
-  for (unsigned int x = 0; x < 10; x++)
-  {
-    for (unsigned int z = 0; z < 10; z++)
-    {
-      glm::mat4 model = glm::mat4(1.0f);
-      model = glm::translate(model, glm::vec3(x,0.0,z));
-      glUniformMatrix4fv(glGetUniformLocation(shader.GetProgramID(),"model"), 1, GL_FALSE, glm::value_ptr(model));
+    // also draw the lamp object
+    lightCubeShader.Use();
+    lightCubeShader.SetMat4("projection", projection);
+    lightCubeShader.SetMat4("view", view);
+    model = glm::mat4(1.0f);
+    model = glm::translate(model, lightPos);
+    model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
+    lightCubeShader.SetMat4("model", model);
 
-      glDrawArrays(GL_TRIANGLES, 0, 36);
-    }
-  }
-
-  glActiveTexture(GL_TEXTURE0);
-  glBindTexture(GL_TEXTURE_2D, texture2.id);
-
-  for (glm::uint i = 0; i < brickPositions.size(); i++)
-  {
-      glm::mat4 model = glm::mat4(1.0f);
-      model = glm::translate(model, brickPositions[i]);
-      glUniformMatrix4fv(glGetUniformLocation(shader.GetProgramID(),"model"), 1, GL_FALSE, glm::value_ptr(model));
-
-      glDrawArrays(GL_TRIANGLES, 0, 36);
-  }
-
-  shader.UnUse();
+    glBindVertexArray(lightCubeVAO);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    lightCubeShader.Use();
 }
 
 void App::LateUpdate() {}
 void App::FixedUpdate(float dt) {}
 void App::InputUpdate()
 {
-  SDL_Event event;
-  while (SDL_PollEvent(&event))
-  {
-    switch (event.type)
+    SDL_Event event;
+    while (SDL_PollEvent(&event))
     {
-    case SDL_QUIT:
-      appState = AppState::OFF;
-      break;
-    case SDL_MOUSEMOTION:
-      camera.ProcessMouseMovement(
-        event.motion.xrel,
-        -event.motion.yrel
-      );
-      break;
-    case SDL_KEYUP:
-      inputManager.releasedKey(event.key.keysym.sym);
-      break;
-    case SDL_KEYDOWN:
-      inputManager.pressKey(event.key.keysym.sym);
-      break;
+        switch (event.type)
+        {
+        case SDL_QUIT:
+            appState = AppState::OFF;
+            break;
+        case SDL_MOUSEMOTION:
+            camera.ProcessMouseMovement(
+                event.motion.xrel,
+                -event.motion.yrel);
+            break;
+        case SDL_KEYUP:
+            inputManager.releasedKey(event.key.keysym.sym);
+            break;
+        case SDL_KEYDOWN:
+            inputManager.pressKey(event.key.keysym.sym);
+            break;
+        }
     }
-  }
 }
