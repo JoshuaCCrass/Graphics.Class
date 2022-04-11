@@ -60,13 +60,15 @@ private:
     // move out to external class
     unsigned int vertexShader;
     unsigned int shaderProgram;
-    unsigned int VBO, cubeVAO, lightCubeVAO, EBO;
+    unsigned int VBO, cubeVAO, lightCubeVAO, EBO, lightVBO;
 
-    Engine::GLTexture texture1 = {};
-    Engine::GLTexture texture2 = {};
+    Engine::GLTexture diffuseMap = {};
+    Engine::GLTexture specularMap = {};
 
     high_resolution_clock::time_point currentTime;
     high_resolution_clock::time_point previousTime;
 
     float deltaTime;
+
+    bool mouseLock = true;
 };
