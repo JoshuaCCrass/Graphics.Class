@@ -2,6 +2,7 @@
 
 git clone --recursive https://github.com/JoshuaCCrass/Graphics.Class.git
 
+git submodule update --init --recursive
 
 ## DEPENDENCES
 
